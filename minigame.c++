@@ -99,3 +99,48 @@ void MYDamage(double& MyDamage, double& HisHelth)
         cout << "Enemy's Healt now is " << HisHelth << endl;
     };
 };
+void MYHeal(double& MyHeal, double& MyHelth)
+{
+    int CritChance = rand() % 6;
+    double Crit = MyHeal * 1.5;
+ 
+    if (CritChance == 0  4)
+    {
+        MyHelth = MyHelth + Crit;
+        cout << "You was healing yourself by " << Crit << endl;
+        cout << "Yours Helth now is " << MyHelth << endl;
+    }
+    else
+    {
+        MyHelth = MyHelth + MyHeal;
+        cout << "You was healing yourself by " << MyHeal << endl;
+        cout << "Yours Helth now is " << MyHelth << endl;
+    };
+};
+ 
+int MySelf()
+{
+    if (MyHelth <= 0)
+        cout << "U're dead!!! Enemy win!!!" << endl;
+ 
+            int MyAction = 0;
+            cout << "What are You want to do? 1 - Damage, 2 - Heal..." << endl;
+            cin >> MyAction;
+ 
+        
+            switch (MyAction)
+            {
+            case 1:
+                MYDamage(MyDamage, HisHelth);
+                break;
+            case 2:
+                MYHeal(MyHeal, MyHelth);
+                break;
+ 
+            default:
+                MySelf();
+                break;
+            };
+ 
+    if (MyHelth <= 0)
+        cout << "U're dead!!! Enemy win!!!" << endl;
