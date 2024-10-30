@@ -48,3 +48,54 @@ void HISHeal(double& HisHeal, double& HisHelth)
         cout << "Enemy's Helth now is " << HisHelth << endl;
     };
 };
+// Написал Артём Иванычев
+int Enemy()
+{
+    if (HisHelth <= 0)
+        cout << "The Enemy is fall! U win!!!" << endl;
+    else
+    {
+        int Action = rand() % 3;
+ 
+        if (HisHelth >= 130)
+            Action = 0;
+ 
+        switch (Action)
+        {
+        case 0 || 1:
+            HISDamage(HisDamage, MyHelth);
+            break;
+        case 2:
+            HISHeal(HisHeal, HisHelth);
+            break;
+        default:
+            HISDamage(HisDamage, MyHelth);
+                break;
+        };
+    };
+ 
+    if (HisHelth <= 0)
+        cout << "The Enemy is fall! U win!!!" << endl;
+ 
+    return 0;
+ 
+};
+ 
+void MYDamage(double& MyDamage, double& HisHelth)
+{
+    int CritChance = rand() % 6;
+    double Crit = MyDamage * 1.5;
+ 
+    if (CritChance == 0  4)
+    {
+        HisHelth = HisHelth - Crit;
+        cout << "U damage Enemy by " << Crit << endl;
+        cout << "Enemy's Healt now is " << HisHelth << endl;
+    }
+    else 
+    {
+        HisHelth = HisHelth - MyDamage;
+        cout << "U damage Enemy by " << MyDamage << endl;
+        cout << "Enemy's Healt now is " << HisHelth << endl;
+    };
+};
